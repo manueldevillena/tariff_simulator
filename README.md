@@ -1,2 +1,2 @@
 # tariff_simulator
-Simulator of tariffs evolution for different regulatory settings
+Simulator of tariff evolution for different regulatory settings.
