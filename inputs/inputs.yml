@@ -1,0 +1,26 @@
+years: 20
+periods: 8760
+pv_price: 1500
+bat_price: 300
+bat_eff_charge: 0.964
+bat_eff_discharge: 0.964
+discount_factor: 0.02
+pv_om: 0.005
+bat_om: 0.01
+hypothetical_tariff: 0.22
+energy_price: 0.132
+sell_price: 0.04
+bat_rate_charge: 4
+bat_rate_discharge: 2.5
+pv_su: 0
+bat_su: 0
+n_scenarios: 1
+annual_demand: 5989.94
+peak_demand: 3.4
+inertia: 5
+volume_share: [1., .9, .8, .7]
+capacity_share: [0., .05, .1, .15]
+fixed_share: [0., .05, .1, .15]
+technology_costs_decrease: .95
+meters: 2
+threads: 2
