@@ -479,13 +479,17 @@ def prosumer_model_milp(price_photovoltaic, price_battery, inputs, filespath, vo
 
     instance = model.create_instance(os.path.join(filespath, nameinstance))  # path_files + nameinstance)
 
-    opt = SolverFactory('glpk')
-    #opt = SolverFactory('cplex')
+    #opt = SolverFactory('glpk')
+    opt = SolverFactory('cplex')
 
     time_before = time.time()
-    opt.options['mipgap'] = 0.01
-    #opt.options['threads'] = 1
-    opt.solve(instance, tee=True)
+    
+    opt.options['mipgap'] = 0.001
+    opt.options['threads'] = 1
+    
+    #opt.solve(instance, tee=True)
+    opt.solve(instance)
+    
     print('Optimisation of prosumer {} took {} seconds.'.format(nameinstance, time.time() - time_before))
 
     # Sizing

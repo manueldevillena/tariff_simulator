@@ -14,7 +14,7 @@ bat_rate_charge: 4
 bat_rate_discharge: 2.5
 pv_su: 0
 bat_su: 0
-n_scenarios: 10
+n_scenarios: 5
 annual_demand: 5989.94
 peak_demand: 3.4
 inertia: 5
