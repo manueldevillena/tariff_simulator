@@ -1,2 +1,7 @@
-visualisation
-venv
+.idea
+results*
+venv/
+__pycache__/
+*.pyc
+*.log
+/datfiles

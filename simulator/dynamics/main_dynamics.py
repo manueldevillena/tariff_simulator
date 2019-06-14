@@ -3,15 +3,13 @@ import os
 from simulator.dynamics import dynamical_system
 from simulator.core import read_inputs, tariff_design
 
-temp = '../../inputs/inputs.yml'
-
-def driver_dynamics(inputs: dict, outputs: str):
+def driver_dynamics(inputs: dict, data: str):
     """
 
     :param inputs:
     :return:
     """
-    path_files = outputs
+    path_files = data
     file_list = os.listdir(path_files)
 
     number_scenarios = int(inputs['n_scenarios'])

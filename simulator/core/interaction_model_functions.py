@@ -14,13 +14,13 @@ def price_gap(dataframe_results, lvoe, user_costs_original):
     dataframe_results['gap'] = lvoe / user_costs_original
 
 
-def instances_next(dataframe_results, instances_old):
+def instances_next(dataframe_results, instances_old, bias):
     """
     """
     newDER = []
     for index in dataframe_results.index:
         price_gap = dataframe_results.loc[index]['gap']
-        beta = (price_gap * 1) if (price_gap * 1) <= 1 else int(1)
+        beta = (price_gap * bias) if (price_gap * bias) <= 1 else int(1)
         invDecision = 1 - bernoulli_distribution(beta)
         if invDecision:
             newDER.append(index)

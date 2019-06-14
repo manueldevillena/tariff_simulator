@@ -14,13 +14,15 @@ bat_rate_charge: 4
 bat_rate_discharge: 2.5
 pv_su: 0
 bat_su: 0
-n_scenarios: 1
+n_scenarios: 10
 annual_demand: 5989.94
 peak_demand: 3.4
 inertia: 5
-volume_share: [1., .9, .8, .7]
-capacity_share: [0., .05, .1, .15]
-fixed_share: [0., .05, .1, .15]
+volume_share: 1.
+capacity_share: 0.
+fixed_share: 0.
 technology_costs_decrease: .95
+bias: 1
 meters: 2
-threads: 2
+jobs: 2
+name: "test"

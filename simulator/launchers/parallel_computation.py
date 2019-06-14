@@ -23,9 +23,11 @@ def solve(price_photovoltaic, price_battery, inputs, filespath, volume_fee_n, ca
     :return:
     """
     time_before = time.time()
-    pool = Pool(processes=inputs['threads'])
+    pool = Pool(processes=inputs['jobs'])
     func = partial(prosumer_model_milp, price_photovoltaic, price_battery, inputs, filespath, volume_fee_n,
                    capacity_fee_n, fixed_fee_n, volume_share)
     results = pool.map(func, instances)
+    pool.close()
+    pool.join()
     print('Iteration time is: {} minutes'.format((time.time() - time_before) / 60))
     return results

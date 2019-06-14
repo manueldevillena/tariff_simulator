@@ -49,8 +49,8 @@ def dynamical_system(number_scenarios, inputs, filespath, instances, initial_vol
     pv_price = inputs['pv_price']
     bat_price = inputs['bat_price']
 
-    general_results = '../../results/{}_{}_{}/results_general'.format(inputs['volume_share'], inputs['capacity_share'], inputs['fixed_share'])
-    evolution_results = '../../results/{}_{}_{}/results_evolution'.format(inputs['volume_share'], inputs['capacity_share'], inputs['fixed_share'])
+    general_results = os.path.join(inputs['output_path'], '{}/results_general'.format(inputs['name']))
+    evolution_results = os.path.join(inputs['output_path'], '{}/results_evolution'.format(inputs['name']))
     os.makedirs(general_results, exist_ok=True)
     os.makedirs(evolution_results, exist_ok=True)
 
@@ -119,7 +119,7 @@ def dynamical_system(number_scenarios, inputs, filespath, instances, initial_vol
 
         price_gap(results_df, results_df['lvoe'], results_df['user_costs_original_kWh'])
 
-        instances, new_dre, lack_willing, lack_profitability = instances_next(results_df, instances)
+        instances, new_dre, lack_willing, lack_profitability = instances_next(results_df, instances, inputs['bias'])
 
         volume_der, capacity_der, volume_losses, capacity_losses, revenue, dso_revenue = dso_imbalance_computation(
             results_df,
